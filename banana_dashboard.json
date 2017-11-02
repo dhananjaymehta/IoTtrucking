@@ -1,0 +1,484 @@
+﻿{
+  "title": "Telco Churn Dashboard",
+  "services": {
+    "query": {
+      "idQueue": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "list": {
+        "0": {
+          "query": "*:*",
+          "alias": "",
+          "color": "#7EB26D",
+          "id": 0,
+          "pin": false,
+          "type": "lucene"
+        }
+      },
+      "ids": [
+        0
+      ]
+    },
+    "filter": {
+      "idQueue": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "list": {},
+      "ids": []
+    }
+  },
+  "rows": [
+    {
+      "title": "Query",
+      "height": "50px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 9,
+          "editable": true,
+          "group": [
+            "default"
+          ],
+          "type": "query",
+          "label": "Search",
+          "history": [
+            "*:*"
+          ],
+          "remember": 10,
+          "pinned": true,
+          "query": "*",
+          "title": "Search",
+          "spyable": true,
+          "def_type": ""
+        },
+        {
+          "span": 3,
+          "editable": true,
+          "type": "hits",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*%3A*&stats=true&stats.field=id&wt=json&rows=0\n",
+            "basic_query": "",
+            "custom": ""
+          },
+          "style": {
+            "font-size": "14pt"
+          },
+          "arrangement": "horizontal",
+          "chart": "total",
+          "counter_pos": "above",
+          "donut": false,
+          "tilt": false,
+          "labels": true,
+          "spyable": true,
+          "title": "Total Hits",
+          "show_queries": true,
+          "metrics": [
+            {
+              "type": "count",
+              "field": "id",
+              "decimalDigits": 0,
+              "label": "",
+              "value": "111"
+            }
+          ],
+          "refresh": {
+            "enable": false,
+            "interval": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "Graph",
+      "height": "500px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 8,
+          "editable": true,
+          "type": "sunburst",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*%3A*&wt=json&facet=true&facet.pivot=predictedLabel,Age,Status,Children&facet.limit=1000&rows=0",
+            "custom": ""
+          },
+          "facet_limit": 1000,
+          "spyable": true,
+          "show_queries": true,
+          "facet_pivot_strings": [
+            "predictedLabel",
+            " Age",
+            " Status",
+            " Children"
+          ]
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "facet",
+          "loadingEditor": false,
+          "status": "Stable",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*%3A*&facet=true&facet.field=Age&facet.field=Status&facet.field=Children&facet.field=EstIncome&facet.field=predictedLabel&wt=json",
+            "basic_query": "q=*%3A*&facet=true&facet.field=Age&facet.field=Status&facet.field=Children&facet.field=EstIncome&facet.field=predictedLabel",
+            "custom": ""
+          },
+          "group": "default",
+          "style": {
+            "font-size": "9pt"
+          },
+          "overflow": "min-height",
+          "fields": [
+            "Age",
+            "Status",
+            "Children",
+            "EstIncome",
+            "predictedLabel"
+          ],
+          "spyable": true,
+          "facet_limit": 10,
+          "maxnum_facets": 5,
+          "foundResults": true,
+          "header_title": "Facet Fields",
+          "toggle_element": "EstIncome",
+          "show_queries": true,
+          "exportSize": null,
+          "offset": 0
+        }
+      ]
+    },
+    {
+      "title": "Bars",
+      "height": "300px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 6,
+          "editable": true,
+          "type": "bar",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "query": "q=*%3A*&wt=json&rows=0&facet=true&facet.field=Age&facet.limit=30",
+            "custom": "",
+            "ids": [
+              0
+            ]
+          },
+          "field": "Age",
+          "size": 30,
+          "spyable": true,
+          "show_queries": true,
+          "title": "Age"
+        },
+        {
+          "span": 5,
+          "editable": true,
+          "type": "bar",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "query": "q=*%3A*&wt=json&rows=0&facet=true&facet.field=predictedLabel&facet.limit=10",
+            "custom": "",
+            "ids": [
+              0
+            ]
+          },
+          "field": "predictedLabel",
+          "size": 10,
+          "spyable": true,
+          "show_queries": true,
+          "title": "Predicted Churn"
+        }
+      ]
+    },
+    {
+      "title": "Filter",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 5,
+          "editable": true,
+          "spyable": true,
+          "group": [
+            "default"
+          ],
+          "type": "filtering"
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "histogram",
+          "loadingEditor": false,
+          "mode": "values",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "",
+            "custom": ""
+          },
+          "max_rows": 100000,
+          "value_field": "Age",
+          "group_field": null,
+          "sum_value": false,
+          "auto_int": true,
+          "resolution": 100,
+          "interval": "1y",
+          "intervals": [
+            "auto",
+            "1s",
+            "1m",
+            "5m",
+            "10m",
+            "30m",
+            "1h",
+            "3h",
+            "12h",
+            "1d",
+            "1w",
+            "1M",
+            "1y"
+          ],
+          "fill": 0,
+          "linewidth": 3,
+          "timezone": "utc",
+          "spyable": true,
+          "zoomlinks": true,
+          "bars": true,
+          "stack": true,
+          "points": false,
+          "lines": false,
+          "lines_smooth": false,
+          "legend": true,
+          "x-axis": true,
+          "y-axis": true,
+          "percentage": false,
+          "interactive": true,
+          "options": true,
+          "show_queries": true,
+          "tooltip": {
+            "value_type": "individual",
+            "query_as_alias": false
+          },
+          "refresh": {
+            "enable": true,
+            "interval": 2
+          }
+        },
+        {
+          "error": "",
+          "span": 3,
+          "editable": true,
+          "type": "timepicker",
+          "loadingEditor": false,
+          "status": "Stable",
+          "mode": "absolute",
+          "time_options": [
+            "5m",
+            "15m",
+            "1h",
+            "6h",
+            "12h",
+            "24h",
+            "2d",
+            "7d",
+            "30d"
+          ],
+          "timespan": "12h",
+          "timefield": "time",
+          "timeformat": "",
+          "spyable": true,
+          "refresh": {
+            "enable": false,
+            "interval": 30,
+            "min": 3
+          },
+          "filter_id": 0,
+          "time": {
+            "from": "10/06/2017 06:53:38",
+            "to": "10/06/2017 07:02:30"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Events",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 12,
+          "editable": true,
+          "group": [
+            "default"
+          ],
+          "type": "table",
+          "size": 10,
+          "pages": 500,
+          "offset": 0,
+          "style": {
+            "font-size": "9pt"
+          },
+          "overflow": "min-height",
+          "fields": [
+            "Age"
+          ],
+          "highlight": [],
+          "sortable": false,
+          "header": true,
+          "paging": true,
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*%3A*&wt=json&rows=5000",
+            "basic_query": "q=*%3A*"
+          },
+          "field_list": true,
+          "status": "Stable",
+          "trimFactor": 300,
+          "normTimes": true,
+          "title": "Events",
+          "saveOption": "json",
+          "exportSize": 5000,
+          "exportAll": true,
+          "displayLinkIcon": true,
+          "imageFields": [],
+          "imgFieldWidth": "auto",
+          "imgFieldHeight": "85px",
+          "sort": [],
+          "important_fields": [
+            "Age",
+            "CarOwner",
+            "CarOwnerEncoded",
+            "CarOwner_str",
+            "Children",
+            "Dropped",
+            "EstIncome",
+            "Gender",
+            "GenderEncoded",
+            "Gender_str",
+            "International",
+            "Local",
+            "LocalBilltype",
+            "LocalBilltypeEncoded",
+            "LocalBilltype_str",
+            "LongDistance",
+            "LongDistanceBilltype",
+            "LongDistanceBilltypeEncoded",
+            "LongDistanceBilltype_str",
+            "Paymethod",
+            "PaymethodEncoded",
+            "Paymethod_str",
+            "RatePlan",
+            "Status",
+            "StatusEncoded",
+            "Status_str",
+            "Usage",
+            "_version_",
+            "features",
+            "id",
+            "predictedLabel",
+            "predictedLabel_str",
+            "prediction",
+            "probability",
+            "rawPrediction",
+            "time"
+          ],
+          "show_queries": true,
+          "maxNumCalcTopFields": 20,
+          "calcTopFieldValuesFromAllData": false,
+          "refresh": {
+            "enable": false,
+            "interval": 2
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": []
+    }
+  ],
+  "editable": true,
+  "index": {
+    "interval": "none",
+    "pattern": "[logstash-]YYYY.MM.DD",
+    "default": "_all"
+  },
+  "style": "dark",
+  "failover": false,
+  "panel_hints": true,
+  "loader": {
+    "save_gist": false,
+    "save_elasticsearch": true,
+    "save_local": true,
+    "save_default": true,
+    "save_temp": true,
+    "save_temp_ttl_enable": true,
+    "save_temp_ttl": "30d",
+    "load_gist": true,
+    "load_elasticsearch": true,
+    "load_elasticsearch_size": 20,
+    "load_local": true,
+    "hide": false,
+    "dropdown_collections": false,
+    "save_as_public": false
+  },
+  "solr": {
+    "server": "/solr/",
+    "core_name": "customerchurn_shard1_replica2",
+    "core_list": [
+      "customerchurn_shard1_replica2",
+      "customerchurn_shard2_replica2",
+      "gettingstarted_shard1_replica1",
+      "gettingstarted_shard2_replica1"
+    ],
+    "global_params": ""
+  },
+  "username": "guest",
+  "home": true
+}
